@@ -26,7 +26,7 @@ namespace GeometricLayouts.Tests.API.Controller
         {
             var grid = new Grid();
             var coordinates = new List<Coordinates>();
-            var mockGridCalculator = mocker.GetMock<IGridCalculator>();
+            var mockGridCalculator = mocker.GetMock<ICalculator>();
             mockGridCalculator
                 .Setup(x => x.GetTriangleVortices(It.IsAny<Grid>()))
                 .Returns(coordinates)

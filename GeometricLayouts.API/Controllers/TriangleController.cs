@@ -14,20 +14,19 @@ namespace GeometricLayouts.Controllers
     public class TriangleController : ControllerBase
     {
         private readonly ILogger<GridController> _logger;
-        private readonly IGridCalculator _gridCalculator;
+        private readonly ICalculator _gridCalculator;
 
-        public TriangleController(ILogger<GridController> logger, IGridCalculator gridCalculator)
+        public TriangleController(ILogger<GridController> logger, ICalculator gridCalculator)
         {
             _logger = logger;
             _gridCalculator = gridCalculator;
         }
 
-
         [HttpPost]
         [ProducesResponseType(200, Type = typeof(List<Coordinates>))]
         public List<Coordinates> Post([FromBody] Grid grid)
         {
-            return _gridCalculator.GetTriangleVortices(grid); //TODO: Add logging for bad request
+            return _gridCalculator.GetTriangleVortices(grid);
         }
     }
 }

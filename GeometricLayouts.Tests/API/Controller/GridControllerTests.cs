@@ -30,7 +30,7 @@ namespace GeometricLayouts.Tests.API.Controller
                 Column = 1
             };
             var traingle = new Triangle();
-            var mockGridCalculator = mocker.GetMock<IGridCalculator>();
+            var mockGridCalculator = mocker.GetMock<ICalculator>();
             mockGridCalculator
                 .Setup(x => x.GetTriangleLocation(It.IsAny<Triangle>()))
                 .Returns(grid)

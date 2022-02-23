@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GeometricLayouts.Domain
 {
-    public interface IGridCalculator
+    public interface ICalculator
     {
         Grid GetTriangleLocation(Triangle traingle);
         List<Coordinates> GetTriangleVortices(Grid grid);

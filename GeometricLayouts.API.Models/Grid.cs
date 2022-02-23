@@ -13,7 +13,7 @@ namespace GeometricLayouts.API.Models
 
         public int Column { get; set; }
 
-        [CharCount(1, 3, ErrorMessage = "Must have between 1 and 3 chars in this string")]
+        [CharCount(1, 3)]
         public string RowColumn { get; set; }
 
         public Grid()
@@ -21,8 +21,8 @@ namespace GeometricLayouts.API.Models
 
         public Grid(string rowColumn)
         {
-            this.Row = this.RowColumn.ToCharArray().First();
-            this.Column = int.Parse(rowColumn.Substring(1));
+            this.Row = rowColumn.ToCharArray().First();
+            this.Column = int.Parse(rowColumn[1..]);
         }
 
         public int GetNumericRow()

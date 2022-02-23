@@ -8,11 +8,11 @@ namespace GeometricLayouts.Tests
 {
     public class GridCalculatorTests
     {
-        private readonly IGridCalculator gridCalculator;
+        private readonly ICalculator gridCalculator;
 
         public GridCalculatorTests()
         {
-            gridCalculator = new GridCalculator();
+            gridCalculator = new Calculator();
         }
 
         [Fact]
@@ -20,33 +20,16 @@ namespace GeometricLayouts.Tests
         {
             var traingle = new Triangle()
             {
-                V1X = 10,
+                V1X = 20,
                 V1Y = 40,
-                V2X = 30,
-                V2Y = 40,
-                V3X = 40,
-                V3Y = 50
+                V2X = 20,
+                V2Y = 50,
+                V3X = 30,
+                V3Y = 40
             };
             var grid = gridCalculator.GetTriangleLocation(traingle);
-            Assert.Equal(2, grid.Column);
+            Assert.Equal(5, grid.Column);
             Assert.Equal('E', grid.Row);
-        }
-
-        [Fact]
-        public void GetTriangleLocationForfdgTest() //test case
-        {
-            var traingle = new Triangle()
-            {
-                V1X = 10,
-                V1Y = 10,
-                V2X = 0,
-                V2Y = 10,
-                V3X = 10,
-                V3Y = 0
-            };
-            var grid = gridCalculator.GetTriangleLocation(traingle);
-            Assert.Equal(2, grid.Column);
-            Assert.Equal('B', grid.Row);
         }
 
         [Fact]
@@ -55,11 +38,11 @@ namespace GeometricLayouts.Tests
             var traingle = new Triangle()
             {
                 V1X = 50,
-                V1Y = 60,
+                V1Y = 50,
                 V2X = 50,
-                V2Y = 50,
+                V2Y = 60,
                 V3X = 60,
-                V3Y = 60
+                V3Y = 50
             };
             var grid = gridCalculator.GetTriangleLocation(traingle);
             Assert.Equal(11, grid.Column);
@@ -80,7 +63,7 @@ namespace GeometricLayouts.Tests
             };
             var grid = gridCalculator.GetTriangleLocation(traingle);
             Assert.Equal(1, grid.Column);
-            Assert.Equal('A', grid.Row);
+            Assert.Equal('@', grid.Row);
         }
 
         [Fact]
@@ -95,7 +78,7 @@ namespace GeometricLayouts.Tests
             Assert.Equal(3, vortices.Count);
             Assert.Contains(vortices, v => v.X == 0 && v.Y == 0);
             Assert.Contains(vortices, v => v.X == 0 && v.Y == 10);
-            Assert.Contains(vortices, v => v.X == 10 && v.Y == 10);
+            Assert.Contains(vortices, v => v.X == 10 && v.Y == 0);
         }
 
         [Fact]
@@ -106,7 +89,7 @@ namespace GeometricLayouts.Tests
             Assert.Equal(3, vortices.Count);
             Assert.Contains(vortices, v => v.X == 0 && v.Y == 0);
             Assert.Contains(vortices, v => v.X == 0 && v.Y == 10);
-            Assert.Contains(vortices, v => v.X == 10 && v.Y == 10);
+            Assert.Contains(vortices, v => v.X == 10 && v.Y == 0);
         }
 
         [Fact]
@@ -119,7 +102,7 @@ namespace GeometricLayouts.Tests
             };
             var vortices = gridCalculator.GetTriangleVortices(grid);
             Assert.Equal(3, vortices.Count);
-            Assert.Contains(vortices, v => v.X == 0 && v.Y == 0);
+            Assert.Contains(vortices, v => v.X == 0 && v.Y == 10);
             Assert.Contains(vortices, v => v.X == 10 && v.Y == 0);
             Assert.Contains(vortices, v => v.X == 10 && v.Y == 10);
         }
