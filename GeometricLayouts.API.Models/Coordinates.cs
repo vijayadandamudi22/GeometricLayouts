@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GeometricLayouts.API.Models.Validations;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 
@@ -7,10 +8,10 @@ namespace GeometricLayouts.API.Models
     [ExcludeFromCodeCoverage]
     public class Coordinates
     {
-        [Required]
+        [GreaterThanZero]
         public int X { get; set; }
 
-        [Required]
+        [GreaterThanZero]
         public int Y { get; set; }
     }
 }

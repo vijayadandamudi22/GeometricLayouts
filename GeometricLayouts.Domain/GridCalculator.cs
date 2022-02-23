@@ -25,6 +25,11 @@ namespace GeometricLayouts.Domain
 
         public List<Coordinates> GetTriangleVortices(Grid grid)
         {
+            if(!string.IsNullOrEmpty(grid.RowColumn))
+            {
+                new Grid(grid.RowColumn);
+            }
+
             if(grid.Column % 2 == 0)
             {
                 return GetRightTriangleVortices(grid);

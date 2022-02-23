@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GeometricLayouts.API.Models.Validations;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -12,12 +13,15 @@ namespace GeometricLayouts.API.Models
 
         public int Column { get; set; }
 
+        [CharCount(1, 3, ErrorMessage = "Must have between 1 and 3 chars in this string")]
+        public string RowColumn { get; set; }
+
         public Grid()
         { }
 
         public Grid(string rowColumn)
         {
-            this.Row = rowColumn.ToCharArray().First();
+            this.Row = this.RowColumn.ToCharArray().First();
             this.Column = int.Parse(rowColumn.Substring(1));
         }
 
