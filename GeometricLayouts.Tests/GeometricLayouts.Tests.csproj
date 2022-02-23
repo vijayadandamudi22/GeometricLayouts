@@ -21,7 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GeometricLayouts.API\GeometricLayouts.API.csproj" />
     <ProjectReference Include="..\GeometricLayouts.Domain\GeometricLayouts.Domain.csproj" />
+    <ProjectReference Include="..\GeometricLayouts\GeometricLayouts.API.csproj" />
   </ItemGroup>
 
 </Project>

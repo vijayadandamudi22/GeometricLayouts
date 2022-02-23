@@ -14,7 +14,7 @@ namespace GeometricLayouts.Controllers
     public class GridController : ControllerBase
     {
         private readonly ILogger<GridController> _logger;
-        private readonly IGridCalculator _gridCalculator; //TODO: make this an interface
+        private readonly IGridCalculator _gridCalculator;
 
         public GridController(ILogger<GridController> logger, IGridCalculator gridCalculator)
         {
@@ -25,16 +25,9 @@ namespace GeometricLayouts.Controllers
 
         [HttpPost]
         [ProducesResponseType(200, Type = typeof(Grid))]
-        public Grid Post([FromBody] Triangle grid) //TODO: may be Iactionresult
+        public Grid Post([FromBody] Triangle traingle) //TODO: may be Iactionresult
         {
-            return _gridCalculator.GetTriangleLocation(grid); //Add logging for bad request
-        }
-
-        [HttpPost("triangle")] //TODO: change this route
-        [ProducesResponseType(200, Type = typeof(List<Coordinates>))]
-        public List<Coordinates> Post([FromBody] Grid grid)
-        {
-            return _gridCalculator.GetTriangleVortices(grid); //Add logging for bad request
+            return _gridCalculator.GetTriangleLocation(traingle); //Add logging for bad request
         }
     }
 }
