@@ -27,7 +27,16 @@ namespace GeometricLayouts.Controllers
         [ProducesResponseType(200, Type = typeof(Grid))]
         public Grid Post([FromBody] Triangle traingle)
         {
-            return _gridCalculator.GetTriangleLocation(traingle);
+            Grid grid;
+            try
+            {
+                grid = _gridCalculator.GetTriangleLocation(traingle);
+            }
+            catch(Exception ex)
+            {
+                throw new Exception($"An error occurred while calling grid calculator", ex);
+            }
+            return grid;
         }
     }
 }

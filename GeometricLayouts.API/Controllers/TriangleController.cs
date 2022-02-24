@@ -26,7 +26,16 @@ namespace GeometricLayouts.Controllers
         [ProducesResponseType(200, Type = typeof(List<Coordinates>))]
         public List<Coordinates> Post([FromBody] Grid grid)
         {
-            return _gridCalculator.GetTriangleVortices(grid);
+            List<Coordinates> coordinates;
+            try
+            {
+                coordinates = _gridCalculator.GetTriangleVortices(grid);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"An error occurred while calling grid calculator", ex);
+            }
+            return coordinates;
         }
     }
 }

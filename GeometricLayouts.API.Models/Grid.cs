@@ -21,7 +21,7 @@ namespace GeometricLayouts.API.Models
 
         public Grid(string rowColumn)
         {
-            this.Row = rowColumn.ToCharArray().First();
+            this.Row = rowColumn.FirstOrDefault();
             this.Column = int.Parse(rowColumn[1..]);
         }
 

@@ -16,7 +16,7 @@ namespace GeometricLayouts.Domain
             {
                 column++;
             }
-            return new Grid { Row = (char)(64 + row), Column = column};
+            return new Grid { Row = (char)(64 + row), Column = column, RowColumn = $"{(char)(64 + row)}{column}" };
         }
 
         public List<Coordinates> GetTriangleVortices(Grid grid)

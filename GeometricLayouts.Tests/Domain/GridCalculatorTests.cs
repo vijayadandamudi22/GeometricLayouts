@@ -30,6 +30,7 @@ namespace GeometricLayouts.Tests
             var grid = gridCalculator.GetTriangleLocation(traingle);
             Assert.Equal(5, grid.Column);
             Assert.Equal('E', grid.Row);
+            Assert.Equal("E5", grid.RowColumn);
         }
 
         [Fact]
@@ -47,6 +48,7 @@ namespace GeometricLayouts.Tests
             var grid = gridCalculator.GetTriangleLocation(traingle);
             Assert.Equal(11, grid.Column);
             Assert.Equal('F', grid.Row);
+            Assert.Equal("F11", grid.RowColumn);
         }
 
         [Fact]
