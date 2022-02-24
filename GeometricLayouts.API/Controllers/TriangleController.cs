@@ -33,7 +33,8 @@ namespace GeometricLayouts.Controllers
             }
             catch (Exception ex)
             {
-                throw new Exception($"An error occurred while calling grid calculator", ex);
+                _logger.LogError(ex, "An error occurred while calling grid calculator");
+                throw;
             }
             return coordinates;
         }
